@@ -1,21 +1,6 @@
 const covid = require("../static/covid.json");
 const historicalData = require("../static/historical.json");
 
-export function getMapData() {
-  let mapList = [];
-  for (let index in covid) {
-    if (index > 0) {
-      const data = {
-        "code3": covid[index].countryInfo.iso3,
-        "z": covid[index].cases,
-        "iso2": covid[index].countryInfo.iso2
-      }
-      mapList.push(data)
-    }
-  }
-  return mapList;
-};
-
 export function getHistoricalData() {
   const timelineKeys = Object.keys(historicalData[0].timeline.cases);
 

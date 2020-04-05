@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import Metric from './metric'
 
 class Tile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tiles: []
-    }
-  }
 
   render() {
     const tiles = [
