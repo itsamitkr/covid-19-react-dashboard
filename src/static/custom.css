@@ -8,3 +8,7 @@ div.viz-padding {
 body.bg-color {
   background-color: #E8E8E8
 }
+
+.react-bootstrap-table table {
+  table-layout: auto;
+}

@@ -92,6 +92,7 @@ class Table extends Component {
           filter={ filterFactory() }
           striped
           hover
+          wrapperClasses="table-responsive"
           condensed/>
         <br/>
       </div>

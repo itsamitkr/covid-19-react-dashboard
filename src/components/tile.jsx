@@ -33,7 +33,7 @@ class Tile extends Component {
     return (
       <div className={"row"}>
         { tiles.map(function(object, i){
-          return <div className={"col-3"}>
+          return <div className={"col-sm-12 col-md-6 col-lg-3"}>
             <Metric data={object} key={i} />
             <br/>
             </div>;

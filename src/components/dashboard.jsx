@@ -42,14 +42,13 @@ class Dashboard extends Component {
           <div className={ "col-12" }>
             <Tile data={ metric }/>
           </div>
-          <div className={ "col-6" }>
+          <div className={ "col-sm-12 col-md-6 col-lg-6" }>
             <WorldMap data={ table } />
+            <br />
           </div>
-          <div className={ "col-6" }>
+          <div className={ "col-sm-12 col-md-6 col-lg-6" }>
             <Trends data={ trend }/>
-          </div>
-          <div className={ "col-12" }>
-          <br />
+            <br />
           </div>
           <div className={ "col-12" }>
             <Table data={ table } />
