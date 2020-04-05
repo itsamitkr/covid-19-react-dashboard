@@ -1,0 +1,10 @@
+div.viz-padding {
+  padding: 5px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 8px;
+}
+
+body.bg-color {
+  background-color: #E8E8E8
+}
