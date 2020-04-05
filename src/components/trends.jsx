@@ -28,13 +28,13 @@ const options = {
   yAxis: {
     type: 'logarithmic',
     title: {
-        text: 'Cases'
+        text: ''
     }
   },
   series: [
-    { name: "Total Cases", data: historicalData.caseSeries },
-    { name: "Deaths", data: historicalData.deathSeries },
-    { name: "Recovered", data: historicalData.recoveredSeries }
+    { name: "Total Cases", data: historicalData.caseSeries, key: "totalCases" },
+    { name: "Deaths", data: historicalData.deathSeries, key: "totalDeaths" },
+    { name: "Recovered", data: historicalData.recoveredSeries, key: "totalRecovered" }
   ],
 }
 

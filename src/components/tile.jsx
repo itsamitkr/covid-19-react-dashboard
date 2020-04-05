@@ -1,18 +1,49 @@
 import React, { Component } from "react";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Metric from './metric'
-const metrics = require('./mapData').getMetricsData();
 
 class Tile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tiles: []
+    }
+  }
+
   render() {
+    const tiles = [
+      {
+        "header": "Total Cases",
+        "metric": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.cases),
+        "type": "bg-info",
+        "icon": "head-side-virus"
+      },
+      {
+        "header": "Total Recovered",
+        "metric": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.recovered),
+        "type": "bg-success",
+        "icon": "head-side-mask"
+      },
+      {
+        "header": "Total Active",
+        "metric": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.active),
+        "type": "bg-warning",
+        "icon": "head-side-cough"
+      },
+      {
+        "header": "Total Death",
+        "metric": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.deaths),
+        "type": "bg-danger",
+        "icon": "head-side-cough-slash"
+      }]
+
     return (
       <div className={"row"}>
-        {metrics.map(function(object, i){
-            return <div className={"col-3"}>
-              <Metric data={object} key={i} />
-              <br/>
-              </div>;
-         })}
+        { tiles.map(function(object, i){
+          return <div className={"col-3"}>
+            <Metric data={object} key={i} />
+            <br/>
+            </div>;
+         }) }
       </div>
     )
   }

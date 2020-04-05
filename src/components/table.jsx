@@ -10,55 +10,54 @@ const columns = [{
   filter: textFilter(),
   formatter: imageFormatter
 },{
-    dataField: "todayCases",
-    text: "Today's Cases",
-    sort: true,
-    filter: numberFilter(),
-    formatter: numberFormatter
+  dataField: "todayCases",
+  text: "Today's Cases",
+  sort: true,
+  filter: numberFilter(),
+  formatter: numberFormatter
 },{
-      dataField: "cases",
-      text: "Total Cases",
-      sort: true,
-      filter: numberFilter(),
-      formatter: numberFormatter
+  dataField: "cases",
+  text: "Total Cases",
+  sort: true,
+  filter: numberFilter(),
+  formatter: numberFormatter
 },{
-     dataField: "active",
-     text: "Active Cases",
-     sort: true,
-     filter: numberFilter(),
-     formatter: numberFormatter
+  dataField: "active",
+  text: "Active Cases",
+  sort: true,
+  filter: numberFilter(),
+  formatter: numberFormatter
 },{
-     dataField: "recovered",
-     text: "Recovered Cases",
-     sort: true,
-     filter: numberFilter(),
-     formatter: numberFormatter
+  dataField: "recovered",
+  text: "Recovered Cases",
+  sort: true,
+  filter: numberFilter(),
+  formatter: numberFormatter
 },{
-     dataField: "critical",
-     text: "Critical Cases",
-     sort: true,
-     filter: numberFilter(),
-     formatter: numberFormatter
+  dataField: "critical",
+  text: "Critical Cases",
+  sort: true,
+  filter: numberFilter(),
+  formatter: numberFormatter
 },{
-     dataField: "deaths",
-     text: "Deaths Cases",
-     sort: true,
-     filter: numberFilter(),
-     formatter: numberFormatter
+  dataField: "deaths",
+  text: "Deaths Cases",
+  sort: true,
+  filter: numberFilter(),
+  formatter: numberFormatter
 },{
-      dataField: "casesPerOneMillion",
-      text: "Cases/ MM",
-      sort: true,
-      filter: numberFilter(),
-      formatter: numberFormatter
+  dataField: "casesPerOneMillion",
+  text: "Cases/ MM",
+  sort: true,
+  filter: numberFilter(),
+  formatter: numberFormatter
 },{
-      dataField: "deathsPerOneMillion",
-      text: "Deaths/ MM",
-      sort: true,
-      filter: numberFilter(),
-      formatter: numberFormatter
-}
-];
+  dataField: "deathsPerOneMillion",
+  text: "Deaths/ MM",
+  sort: true,
+  filter: numberFilter(),
+  formatter: numberFormatter
+}];
 
 const defaultSorted = [{
   dataField: "cases",
@@ -66,28 +65,29 @@ const defaultSorted = [{
 }];
 
 function numberFormatter(cell) {
-  return new Intl.NumberFormat("en-IN", { maximumSignificantDigits: 3 }).format(cell);
+  return new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(cell);
 }
 
 function imageFormatter(cell, row){
   return (
     <div>
-      <Flag alt={row.country} src={row.countryInfo.flag} />
+      <Flag alt={ row.country } src={ row.countryInfo.flag } />
       &nbsp;&nbsp;
-      <strong>{cell}</strong>
+      <strong>{ cell }</strong>
     </div>);
 }
 
 
 class Table extends Component {
   render() {
+    const { data, isLoaded } = this.props;
     return (
       <div className={ "card col-12" }>
         <br/>
         <BootstrapTable
           keyField="country"
-          columns={columns}
-          data={ this.props.data }
+          columns={ columns }
+          data={ data }
           defaultSorted = { defaultSorted }
           filter={ filterFactory() }
           striped
@@ -95,7 +95,7 @@ class Table extends Component {
           condensed/>
         <br/>
       </div>
-        )
+    )
   }
 };
 export default Table;

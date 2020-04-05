@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 class Flag extends Component {
-//   https://corona.lmao.ninja/countries
   render() {
     return (
       <LazyLoadImage
-        alt={this.props.alt}
-        height={25}
-        src={this.props.src}
-        width={40}
+        alt={ this.props.alt }
+        height={ 25 }
+        src={ this.props.src }
+        width={ 40 }
       />)
   }
 };
