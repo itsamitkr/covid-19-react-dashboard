@@ -4,7 +4,6 @@ import WorldMap from './worldMap'
 import Trends from './trends'
 import Tile from './tile'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-const data = require("../static/covid.json");
 
 class Dashboard extends Component {
   constructor(props) {
@@ -19,7 +18,7 @@ class Dashboard extends Component {
     Promise.all([
       fetch("https://corona.lmao.ninja/countries"),
       fetch("https://corona.lmao.ninja/all"),
-      fetch("https://corona.lmao.ninja/historical"),
+      fetch("https://corona.lmao.ninja/v2/historical"),
     ]).then(([res1, res2, res3]) => {
        return Promise.all([res1.json(), res2.json(), res3.json()])
     })
@@ -47,7 +46,7 @@ class Dashboard extends Component {
             <WorldMap data={ table } />
           </div>
           <div className={ "col-6" }>
-            <Trends />
+            <Trends data={ trend }/>
           </div>
           <div className={ "col-12" }>
           <br />
