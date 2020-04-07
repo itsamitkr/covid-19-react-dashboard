@@ -16,7 +16,6 @@ class Trends extends Component {
       "categories": [],
       "caseSeries": [],
       "deathSeries": [],
-      "deathSeries": [],
       "recoveredSeries": []
     };
 
@@ -34,11 +33,15 @@ class Trends extends Component {
             cases = cases + object.timeline.cases[key];
             deaths = deaths + object.timeline.deaths[key];
             recovered = recovered + object.timeline.recovered[key];
+
+            return null;
          });
 
          trendLine.caseSeries.push(cases);
          trendLine.deathSeries.push(deaths);
          trendLine.recoveredSeries.push(recovered);
+
+         return null;
       });
     }
     return trendLine;
@@ -52,9 +55,6 @@ class Trends extends Component {
       },
       chart: {
           type: 'line'
-      },
-      legend: {
-        enabled: false
       },
       credits: {
         enabled: false
@@ -81,9 +81,11 @@ class Trends extends Component {
     }
 
     return (
-      <HighchartsReact
-        highcharts={Highcharts}
-        options={options}/>
+      <div className={ "card" }>
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={options}/>
+      </div>
     );
   }
 };

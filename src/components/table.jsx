@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import filterFactory, { textFilter, numberFilter } from "react-bootstrap-table2-filter";
+// import paginationFactory from 'react-bootstrap-table2-paginator';
 import Flag from './flag';
+
 
 const columns = [{
   dataField: "country",
@@ -80,19 +82,20 @@ function imageFormatter(cell, row){
 
 class Table extends Component {
   render() {
-    const { data, isLoaded } = this.props;
+    const { data } = this.props;
     return (
       <div className={ "card col-12" }>
         <br/>
         <BootstrapTable
-          keyField="country"
+          keyField={ "country" }
           columns={ columns }
           data={ data }
           defaultSorted = { defaultSorted }
           filter={ filterFactory() }
           striped
           hover
-          wrapperClasses="table-responsive"
+          wrapperClasses={ "table-responsive" }
+//           pagination={ paginationFactory(options) }
           condensed/>
         <br/>
       </div>

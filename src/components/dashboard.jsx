@@ -36,8 +36,11 @@ class Dashboard extends Component {
     return (
       <div className={"container-fluid"}>
         <div className={"row viz-padding"}>
-          <div className={"col-12"}>
+          <div className={"col-8"}>
             <h1 className="h1"><FontAwesomeIcon icon={ "virus" } /> COVID-19 Dashboard</h1>
+          </div>
+          <div className={"col-4"} align={"right"}>
+            <super className="text-muted">Last Updated on: { new Date(metric.updated).toLocaleString() }</super>
           </div>
           <div className={ "col-12" }>
             <Tile data={ metric }/>

@@ -6,35 +6,43 @@ class Tile extends Component {
   render() {
     const tiles = [
       {
-        "header": "Total Cases",
+        "header": "Confirmed",
         "metric": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.cases),
-        "type": "bg-info",
-        "icon": "head-side-virus"
+        "type": "info",
+        "icon": "head-side-virus",
+        "dailyIcon": "arrow-alt-circle-up",
+        "daily": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.todayCases),
       },
       {
-        "header": "Total Recovered",
+        "header": "Recovered",
         "metric": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.recovered),
-        "type": "bg-success",
-        "icon": "head-side-mask"
+        "type": "success",
+        "icon": "head-side-mask",
+        "dailyIcon": "ban",
+        "daily": "",
       },
       {
-        "header": "Total Active",
+        "header": "Active",
         "metric": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.active),
-        "type": "bg-warning",
-        "icon": "head-side-cough"
+        "type": "warning",
+        "icon": "head-side-cough",
+        "dailyIcon": "procedures",
+        "daily": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.critical),
       },
       {
-        "header": "Total Death",
+        "header": "Death",
         "metric": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.deaths),
-        "type": "bg-danger",
-        "icon": "head-side-cough-slash"
+        "type": "danger",
+        "icon": "head-side-cough-slash",
+        "dailyIcon": "arrow-alt-circle-up",
+        "daily": new Intl.NumberFormat("en-US", { maximumSignificantDigits: 12 }).format(this.props.data.todayDeaths),
       }]
 
     return (
       <div className={"row"}>
         { tiles.map(function(object, i){
-          return <div className={"col-sm-12 col-md-6 col-lg-3"}>
-            <Metric data={object} key={i} />
+          return <div key={i} className={"col-sm-12 col-md-6 col-lg-3"}>
+            <Metric data={object} />
             <br/>
             </div>;
          }) }
