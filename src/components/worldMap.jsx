@@ -12,7 +12,7 @@ class WorldMap extends Component {
   static getMapData(items) {
     let mapList = [];
     for (let index in items) {
-      if (items[index].country !== "world") {
+      if (items[index].countryInfo !== undefined && items[index].country !== "world") {
         const data = {
           "code3": items[index].countryInfo.iso3,
           "z": items[index].cases,
